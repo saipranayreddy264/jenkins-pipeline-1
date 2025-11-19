@@ -1,26 +1,18 @@
 pipeline {
     agent {
-        label 'java-slave'
+        label ('java-slave')
     }
 
     stages {
-        stage ('build') {
+        stage ('build stage') {
             steps {
                 echo "This is a build stage"
+                error "this is a failure"
             }
         }
-        stage ('groovycodestage') {
+        stage ('scans') {
             steps {
-                script {
-                    // define a variable
-                    def course ="k8s"
-
-                    // if condition
-                    if (course == "k8s")
-                    println("Thanks for enrolling to k8s")
-                    else
-                    println("Do enroll for k8s")
-                }
+                echo "Executing sonar scans....."
             }
         }
     }
