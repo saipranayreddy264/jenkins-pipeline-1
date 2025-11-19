@@ -5,7 +5,7 @@ pipeline {
         label 'java-slave'
     }
     stages {
-        stage ('hostaname') {
+        stage ('hostname') {
             steps {
                 sh 'hostname -i'
             }
