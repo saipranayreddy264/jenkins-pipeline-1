@@ -9,6 +9,12 @@ pipeline {
             steps {
                 sh 'hostname -i'
             }
+
+        stage ('secondstage') {
+            steps {
+                echo "welcome to new pipelines"
+            }
+        }
         }
     }
 }
