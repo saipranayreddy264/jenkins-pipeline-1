@@ -1,20 +1,27 @@
 pipeline {
-    // agent any
-
     agent {
         label 'java-slave'
     }
+
     stages {
-        stage ('hostname') {
+        stage ('build') {
             steps {
-                sh 'hostname -i'
+                echo "This is a build stage"
             }
         }
-        stage ('secondstage') {
+        stage ('groovycodestage') {
             steps {
-                echo "welcome to new pipelines"
+                script {
+                    // define a variable
+                    def course ="k8s"
+
+                    // if condition
+                    if (course == "k8s")
+                    println("Thanks for enrolling to k8s")
+                    else
+                    println("Do enroll for k8s")
+                }
             }
         }
-        
     }
 }
