@@ -1,7 +1,7 @@
 pipeline {
     // agent any
 
-    agnet {
+    agent {
         label 'java-slave'
     }
     stages {
