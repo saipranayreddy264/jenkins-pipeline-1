@@ -1,18 +1,17 @@
 pipeline {
     agent {
-        label ('java-slave')
+        label 'jenkins-slave'
     }
-
     stages {
-        stage ('build stage') {
+        stage ('Build') {
             steps {
-                echo "This is a build stage"
-                error "this is a failure"
-            }
-        }
-        stage ('scans') {
-            steps {
-                echo "Executing sonar scans....."
+                timeout (time: 5, unit: 'SECONDS') // alues: NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS
+                {
+                    echo "Sleeping for 60 Seconds"
+                    sleep 60
+                    // siva input ====. yes | no
+                }
+
             }
         }
     }
