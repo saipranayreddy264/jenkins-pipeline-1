@@ -1,18 +1,27 @@
 pipeline {
     agent {
-        label 'java-slave'
+        label "java-slave"
     }
     stages {
-        stage ('Build') {
+        stage (build stage) {
             steps {
-                timeout (time: 5, unit: 'SECONDS') // alues: NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS
-                {
-                    echo "Sleeping for 60 Seconds"
-                    sleep 60
-                    // siva input ====. yes | no
-                }
-
+                echo "this is a build stage"
             }
+        }
+    }
+    post {
+        sucess {
+            echo "post the sucess is trigged"
+
+        }
+        failure {
+            echo "failure is trigger"
+
+
+        }
+        always {
+            echo "sucess is triggered"
+
         }
     }
 }
